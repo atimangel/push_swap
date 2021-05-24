@@ -21,29 +21,31 @@ int			*ft_atoi_ptr(const char *string)
 {
 	int			i;
 	int			*number;
+	long int		bowl;
 	int			negative;
 
 	i = 0;
 	number = (int *)malloc(sizeof(int));
 	if (!number)
 		return (number);
-	*number = 0;
+	bowl = 0;
 	while (ft_isspace(string[i]))
 		i++;
 	if ((negative = ft_ispm(string[i])) != 0)
 		i++;
 	while (ft_isdigit(string[i]))
 	{
-		*number *= 10;
-		*number += string[i] - '0';
-		if (negative != -1 && (unsigned int)(*number) > 2147483647)
+		bowl *= 10;
+		bowl += string[i] - '0';
+		if (negative != -1 && bowl > 2147483647)
 			return (NULL);
-		if (negative == -1 && (unsigned int)(*number) > 2147483648)
+		if (negative == -1 && bowl > 2147483648)
 			return (NULL);
 		i++;
 	}
 	if (negative == -1)
-		*number *= -1;
+		bowl *= -1;
+	*number = (int)bowl;
 	return (number);
 }
 
