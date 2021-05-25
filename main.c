@@ -1,7 +1,5 @@
-//#include "push_swap.h"
+#include "push_swap.h"
 #include <stdio.h>
-#include "libft_bonus.h"
-#include "libft.h"
 
 t_list *make_list(int arg_c, char **arg_v)
 {
@@ -31,7 +29,6 @@ t_list *make_list(int arg_c, char **arg_v)
 		}
 		else
 		{
-			printf("i = %d\n", i);
 			integer = ft_atoi_ptr(arg_v[i++]);
 			if (!integer)
 			{
@@ -48,7 +45,6 @@ t_list *make_list(int arg_c, char **arg_v)
 				return (0);
 			}	
 			ft_lstadd_back(&a, tmp);
-			printf("tmp %p end %p num %d\n", tmp, ft_lstlast(a), *(int *)tmp->content);
 			tmp = a;
 			num = *(int *)ft_lstlast(a)->content;
 			while (!tmp)
@@ -64,22 +60,25 @@ t_list *make_list(int arg_c, char **arg_v)
 	}
 	return (a);
 }
+void	checkcontent(void *num)
+{
+	ft_putnbr_fd(*(int *)num, 1);
+	ft_putchar_fd('\n', 1);
+}
 
 int	main(int arg_c, char **arg_v)
 {
 	t_list *a;
-	t_list *tmp;
+	t_list *b;
 	int	i;
-	int	*num;
 
+	if (arg_c == 1)
+		return (0);
 	i = 1;
 	a = make_list(arg_c, arg_v);
-	tmp = a;
-	while (tmp)
-	{
-		printf("tmp %p a %p num %d\n", tmp, a, *(int *)tmp->content);
-		tmp = tmp->next;
-	}
+	ft_lstiter(a, checkcontent);
+	sa(&a);
+	ft_lstiter(a, checkcontent);
 	ft_lstclear(&a, free);
 	return (0);
 }
