@@ -77,9 +77,15 @@ int	main(int arg_c, char **arg_v)
 		return (0);
 	i = 1;
 	a = make_list(arg_c, arg_v);
+	b = NULL;
 	ft_lstiter(a, checkcontent);
 	sa(&a);
+	pb(&a, &b);
+	printf("a\n");
 	ft_lstiter(a, checkcontent);
+	printf("b\n");
+	ft_lstiter(b, checkcontent);
 	ft_lstclear(&a, free);
+	ft_lstclear(&b, free);
 	return (0);
 }

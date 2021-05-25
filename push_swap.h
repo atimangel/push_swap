@@ -13,6 +13,9 @@ void	ss(t_list **a, t_list **b);
 /*
 **PUSH
 */
+void	push(t_list **dest, t_list **src);
+void	pa(t_list **a, t_list **b);
+void	pb(t_list **a, t_list **b);
 /*
 **ROTATE
 */
