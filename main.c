@@ -60,6 +60,7 @@ t_list *make_list(int arg_c, char **arg_v)
 	}
 	return (a);
 }
+
 void	checkcontent(void *num)
 {
 	ft_putnbr_fd(*(int *)num, 1);
