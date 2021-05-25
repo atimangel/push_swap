@@ -9,7 +9,7 @@ void	swap(t_list **list)
 	second = (*list)->next;
 	(*list)->next = second->next;
 	second->next = (*list);
-	list = &second;
+	*list = second;
 }
 
 void	sa(t_list **a)
