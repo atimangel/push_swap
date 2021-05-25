@@ -4,6 +4,10 @@ void	swap(t_list **list)
 {
 	t_list *second;
 	
+	if (!list)
+		return ;
+	if (!*list)
+		return ;
 	if (ft_lstsize(*list) < 2)
 		return ;
 	second = (*list)->next;
