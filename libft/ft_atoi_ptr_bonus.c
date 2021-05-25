@@ -43,6 +43,11 @@ int			*ft_atoi_ptr(const char *string)
 			return (NULL);
 		i++;
 	}
+	if (string[i])
+	{
+		free(number);
+		return (NULL);
+	}
 	if (negative == -1)
 		bowl *= -1;
 	*number = (int)bowl;
