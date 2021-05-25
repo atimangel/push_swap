@@ -22,4 +22,8 @@ void	pb(t_list **a, t_list **b);
 /*
 **REVERSE ROTATE
 */
+void	reverse_rotate(t_list **list);
+void	rra(t_list **a);
+void	rrb(t_list **b);
+void	rrr(t_list **a, t_list **b);
 #endif
