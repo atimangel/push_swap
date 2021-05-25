@@ -5,22 +5,44 @@
 
 int	main(int arg_c, char **arg_v)
 {
-	t_list **a;
+	t_list *a;
+	t_list *tmp;
+	int	i;
+	int	*num;
 
-	a = (t_list **)malloc(sizeof(t_list *));
-	if (!a)
+	i = 1;
+	while (i < arg_c)
 	{
-		ft_putstr_fd("error\n", 2);
-		return(0);
+		tmp = a;
+		num = ft_atoi_ptr(arg_v[i++]);
+		if (!num)
+		{
+			ft_putstr_fd("error\n", 2);
+			ft_lstclear(&a, free);
+			return(0);
+		}
+		if (!a)
+			a = ft_lstnew(num);
+		else
+		{
+			while (!tmp)
+			{
+				if (*(int *)tmp->content == *num)
+				{
+					ft_putstr_fd("error\n", 2);
+					ft_lstclear(&a, free);
+					return (0);
+				}
+				if (!tmp->next)
+				{
+					tmp->next = ft_lstnew(num);
+					break;
+				}
+				tmp = tmp->next;
+			}
+		}
+		printf("%d\n", *num);
 	}
-	ft_lstadd_back(a, ft_lstnew(ft_atoi_ptr(arg_v[1])));
-	if (!(*a)->content)
-	{
-		ft_putstr_fd("error\n", 2);
-		ft_lstclear(a, free);
-		return(0);
-	}
-	printf("%p %p %d\n", a, *a, *(int *)(*a)->content);
-	ft_lstclear(a, free);
+	ft_lstclear(&a, free);
 	return (0);
 }
