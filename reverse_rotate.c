@@ -5,6 +5,10 @@ void	reverse_rotate(t_list **list)
 	t_list *n_minus_1;
 	int	size;
 
+	if (!list)
+		return ;
+	if (!*list)
+		return ;
 	if ((size = ft_lstsize(*list)) <= 1)
 		return ;
 	n_minus_1 = *list;
