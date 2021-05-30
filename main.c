@@ -10,52 +10,35 @@ t_list *make_list(int arg_c, char **arg_v)
 	int	*integer;
 
 	i = 1;
+	a = NULL;
 	while (i < arg_c)
 	{
-		if (i == 1)
+		integer = ft_atoi_ptr(arg_v[i++]);
+		if (!integer)
 		{
-			integer = ft_atoi_ptr(arg_v[i++]);
-			if (!integer)
-			{
-				ft_putstr_fd("error\n", 2);
-				return (0);
-			}
-			a = ft_lstnew(integer);
-			if (!a)
-			{
-				ft_putstr_fd("error\n", 2);
-				return (0);
-			}
+			ft_lstclear(&a, free);
+			ft_putstr_fd("error\n", 2);
+			return (0);
 		}
-		else
+		tmp = ft_lstnew(integer);
+		if (!tmp)
 		{
-			integer = ft_atoi_ptr(arg_v[i++]);
-			if (!integer)
+			free(integer);
+			ft_lstclear(&a, free);
+			ft_putstr_fd("error\n", 2);
+			return (0);
+		}	
+		ft_lstadd_back(&a, tmp);
+		tmp = a;
+		while (tmp)
+		{
+			if (*integer == *(int *)tmp->content && integer != (int *)tmp->content)
 			{
 				ft_lstclear(&a, free);
 				ft_putstr_fd("error\n", 2);
 				return (0);
 			}
-			tmp = ft_lstnew(integer);
-			if (!tmp)
-			{
-				free(integer);
-				ft_lstclear(&a, free);
-				ft_putstr_fd("error\n", 2);
-				return (0);
-			}	
-			ft_lstadd_back(&a, tmp);
-			tmp = a;
-			while (tmp)
-			{
-				if (*integer == *(int *)tmp->content && integer != (int *)tmp->content)
-				{
-					ft_lstclear(&a, free);
-					ft_putstr_fd("error\n", 2);
-					return (0);
-				}
-				tmp = tmp->next;
-			}
+			tmp = tmp->next;
 		}
 	}
 	return (a);
