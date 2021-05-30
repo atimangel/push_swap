@@ -46,11 +46,11 @@ t_list *make_list(int arg_c, char **arg_v)
 			}	
 			ft_lstadd_back(&a, tmp);
 			tmp = a;
-			num = *(int *)ft_lstlast(a)->content;
-			while (!tmp)
+			while (tmp)
 			{
-				if (num == *(int *)tmp->content && tmp != ft_lstlast(a))
+				if (*integer == *(int *)tmp->content && integer != (int *)tmp->content)
 				{
+					ft_lstclear(&a, free);
 					ft_putstr_fd("error\n", 2);
 					return (0);
 				}
@@ -75,16 +75,13 @@ int	main(int arg_c, char **arg_v)
 
 	if (arg_c == 1)
 		return (0);
-	i = 1;
 	a = make_list(arg_c, arg_v);
 	b = NULL;
+	if (!a)
+		return(0);
 	ft_lstiter(a, checkcontent);
-	sa(&a);
-	pb(&a, &b);
-	printf("a\n");
+	msort(&a, &b, arg_c - 1, 2);
 	ft_lstiter(a, checkcontent);
-	printf("b\n");
-	ft_lstiter(b, checkcontent);
 	ft_lstclear(&a, free);
 	ft_lstclear(&b, free);
 	return (0);
