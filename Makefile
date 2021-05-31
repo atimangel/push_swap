@@ -3,8 +3,8 @@ SRC = swap.c\
       push.c\
       reverse_rotate.c\
       rotate.c\
-      merge_sort.c
-
+      merge_sort.c\
+	  make_list.c
 
 NAME = push_swap
 libft = -I libft libft/libft.a

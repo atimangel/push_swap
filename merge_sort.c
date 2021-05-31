@@ -1,6 +1,18 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   merge_sort.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: snpark <snpark@student.42seoul.kr>         +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/05/31 16:20:35 by snpark            #+#    #+#             */
+/*   Updated: 2021/05/31 16:22:42 by snpark           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
-int	get_num(t_list **list)
+int			get_num(t_list **list)
 {
 	return (*(int *)(*list)->content);
 }
@@ -43,13 +55,13 @@ static void	compare(t_list **a, t_list **b, int len_a, int len_b)
 	}
 }
 
-static void compare_last(t_list **a, t_list **b, int len_a, int len_b)
+static void	compare_last(t_list **a, t_list **b, int len_a, int len_b)
 {
 	devide(a, b, len_b);
 	compare(a, b, len_a, len_b);
 }
 
-void	msort(t_list **a, t_list **b, int len, int level)
+void		msort(t_list **a, t_list **b, int len, int level)
 {
 	int	sorted;
 	int	should_sort;

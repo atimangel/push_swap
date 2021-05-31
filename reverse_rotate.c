@@ -1,9 +1,21 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   reverse_rotate.c                                   :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: snpark <snpark@student.42seoul.kr>         +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/05/31 16:42:41 by snpark            #+#    #+#             */
+/*   Updated: 2021/05/31 16:43:17 by snpark           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
 void	reverse_rotate(t_list **list)
 {
-	t_list *n_minus_1;
-	int	size;
+	t_list	*n_minus_1;
+	int		size;
 
 	if (!list)
 		return ;
@@ -15,7 +27,7 @@ void	reverse_rotate(t_list **list)
 	while (size != 2)
 	{
 		size--;
-		n_minus_1 = n_minus_1->next;	
+		n_minus_1 = n_minus_1->next;
 	}
 	(n_minus_1->next)->next = *list;
 	*list = n_minus_1->next;

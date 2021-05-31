@@ -1,9 +1,21 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   swap.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: snpark <snpark@student.42seoul.kr>         +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/05/31 16:40:29 by snpark            #+#    #+#             */
+/*   Updated: 2021/05/31 16:41:43 by snpark           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
 void	swap(t_list **list)
 {
-	t_list *second;
-	
+	t_list	*second;
+
 	if (!list)
 		return ;
 	if (!*list)
@@ -32,5 +44,5 @@ void	ss(t_list **a, t_list **b)
 {
 	swap(a);
 	swap(b);
-	ft_putstr_fd("ss\n", 1);	
+	ft_putstr_fd("ss\n", 1);
 }

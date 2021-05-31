@@ -1,30 +1,25 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   push_swap.h                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: snpark <snpark@student.42seoul.kr>         +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/05/31 16:39:30 by snpark            #+#    #+#             */
+/*   Updated: 2021/05/31 16:40:11 by snpark           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 # include "libft.h"
 # include "libft_bonus.h"
 
 /*
-**NODE
-*/
-/*
-typedef struct s_node
-{
-	t_node *head;
-	int	num;
-	t_node *tail;
-}		t_node;
-*/
-/*
-for parsing
-	t_node	*node_new();
-	void	node_add_back();
-for swap
-for push
-for rotate
-for reverse rotate
-for free
+**UTILS
 */
 void	checkcontent(void *num);
+t_list	*make_list(int arg_c, char **arg_v);
 /*
 **SWAP
 */

@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.c                                    :+:      :+:    :+:   */
+/*   get_next_line_bonus.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: snpark <snpark@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/31 13:13:08 by snpark            #+#    #+#             */
-/*   Updated: 2021/01/11 14:33:45 by snpark           ###   ########.fr       */
+/*   Updated: 2021/05/31 16:56:51 by snpark           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,14 +32,13 @@ static int	sub_get(char **dest, char *src, char **save)
 		if (ft_strchr(src, '\n') != src + ft_strlen(src) - 1)
 		{
 			*save = ft_substr(src, ft_strchr(src, '\n') - src + 1,
-					ft_strlen(src) - (ft_strchr(src, '\n') - src)- 1);
+					ft_strlen(src) - (ft_strchr(src, '\n') - src) - 1);
 			if (!*save)
 				return (-1);
 		}
 		return (1);
 	}
 	return (0);
-
 }
 
 static void	ft_free_save(char *tmp, char **save)

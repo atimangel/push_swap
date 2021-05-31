@@ -1,6 +1,18 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   rotate.c                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: snpark <snpark@student.42seoul.kr>         +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/05/31 16:38:39 by snpark            #+#    #+#             */
+/*   Updated: 2021/05/31 16:39:04 by snpark           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
-void rotate(t_list **list)
+void	rotate(t_list **list)
 {
 	t_list *first;
 
@@ -16,19 +28,19 @@ void rotate(t_list **list)
 	first->next = NULL;
 }
 
-void ra(t_list **a)
+void	ra(t_list **a)
 {
 	rotate(a);
 	ft_putstr_fd("ra\n", 1);
 }
 
-void rb(t_list **b)
+void	rb(t_list **b)
 {
 	rotate(b);
 	ft_putstr_fd("rb\n", 1);
 }
 
-void rr(t_list **a, t_list **b)
+void	rr(t_list **a, t_list **b)
 {
 	rotate(a);
 	rotate(b);

@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   push.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: snpark <snpark@student.42seoul.kr>         +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/05/31 16:42:08 by snpark            #+#    #+#             */
+/*   Updated: 2021/05/31 16:42:21 by snpark           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
 void	push(t_list **dest, t_list **src)
@@ -10,7 +22,6 @@ void	push(t_list **dest, t_list **src)
 	*src = first_src->next;
 	first_src->next = *dest;
 	*dest = first_src;
-
 }
 
 void	pa(t_list **a, t_list **b)
