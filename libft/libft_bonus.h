@@ -6,7 +6,7 @@
 /*   By: snpark <snpark@student.42seoul.ke>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/22 10:45:14 by snpark            #+#    #+#             */
-/*   Updated: 2020/12/28 14:58:19 by snpark           ###   ########.fr       */
+/*   Updated: 2021/06/03 14:20:55 by snpark           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,5 +18,7 @@
 # endif
 
 int		get_next_line(int fd, char **line);
-int		*ft_atoi_ptr(const char *string);
+int		ft_atoi_ptr(char **origin);
+int		ft_ispm(char c);
+int		ft_isspace(char c);
 #endif

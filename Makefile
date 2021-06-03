@@ -4,7 +4,9 @@ SRC = swap.c\
       reverse_rotate.c\
       rotate.c\
       merge_sort.c\
-	  make_list.c
+	  make_list.c\
+	  node.c
+
 
 NAME = push_swap
 libft = -I libft libft/libft.a
@@ -13,7 +15,12 @@ CFLAG = -Wall -Werror -Wextra
 all : $(NAME)
 	
 $(NAME) : $(SRC)
+	make -C ./libft
 	gcc -I libft main.c $(SRC) libft/libft.a -o push_swap
+
+test :
+	make -C ./libft
+	gcc -g3 -I libft main.c $(SRC) libft/libft.a -o push_swap
 
 clean :
 	rm *.o

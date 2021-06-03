@@ -6,30 +6,32 @@
 /*   By: snpark <snpark@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/31 16:44:57 by snpark            #+#    #+#             */
-/*   Updated: 2021/05/31 17:04:03 by snpark           ###   ########.fr       */
+/*   Updated: 2021/06/03 14:22:34 by snpark           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft_bonus.h"
 #include "libft.h"
 
-static	int	ft_isspace(char c)
+int	ft_isspace(char c)
 {
 	if ((c >= 9 && c <= 13) || c == 32)
 		return (1);
 	return (0);
 }
 
-static	int	ft_ispm(char c)
+int	ft_ispm(char c)
 {
 	if (c == '+')
 		return (1);
 	else if (c == '-')
 		return (-1);
+	else if (c < '0' || c > '9')
+		return (-2);
 	return (0);
 }
 
-static int	c_to_n(int i, const char *string, long int *bowl, int negative)
+static int	c_to_n(int i, char *string, long int *bowl, int negative)
 {
 	while (ft_isdigit(string[i]))
 	{
@@ -44,32 +46,30 @@ static int	c_to_n(int i, const char *string, long int *bowl, int negative)
 	return (i);
 }
 
-int			*ft_atoi_ptr(const char *string)
+int			ft_atoi_ptr(char **origin)
 {
 	int			i;
-	int			*number;
 	long int	bowl;
 	int			negative;
+	char		*string;
 
+	string = *origin;
 	i = 0;
-	number = (int *)malloc(sizeof(int));
-	if (!number)
-		return (number);
 	bowl = 0;
 	while (ft_isspace(string[i]))
 		i++;
 	if ((negative = ft_ispm(string[i])) != 0)
 		i++;
 	i = c_to_n(i, string, &bowl, negative);
-	if (i == -1 || string[i])
+	if (i == -1)
 	{
-		free(number);
-		return (NULL);
+		*origin = 0;
+		return (-1);
 	}
 	if (negative == -1)
 		bowl *= -1;
-	*number = (int)bowl;
-	return (number);
+	*origin = string + i;
+	return ((int)bowl);
 }
 
 /*

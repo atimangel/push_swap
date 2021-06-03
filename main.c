@@ -6,7 +6,7 @@
 /*   By: snpark <snpark@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/31 16:19:49 by snpark            #+#    #+#             */
-/*   Updated: 2021/05/31 17:07:04 by snpark           ###   ########.fr       */
+/*   Updated: 2021/06/03 17:11:55 by snpark           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,17 +21,17 @@ void	checkcontent(void *num)
 
 int		main(int arg_c, char **arg_v)
 {
-	t_list	*a;
-	t_list	*b;
+	t_node_handler	a;
+//	t_list	*b;
 	int		i;
 
 	if (arg_c == 1)
 		return (0);
-	printf("1 %s\n", arg_v[1]);
-	a = make_list(arg_c, arg_v);
-	b = NULL;
-	if (!a)
+	if (!make_list(arg_c, arg_v, &a))
 		return (0);
-	msort(&a, &b, arg_c - 1, 2);
+//	b = NULL;
+	//rder_check(a);
+	//msort(&a, &b, arg_c - 1, 2);
+	putnode(a, 'a');
 	return (0);
 }
