@@ -6,7 +6,7 @@
 /*   By: snpark <snpark@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/31 16:39:30 by snpark            #+#    #+#             */
-/*   Updated: 2021/05/31 16:40:11 by snpark           ###   ########.fr       */
+/*   Updated: 2021/06/03 17:39:19 by snpark           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,33 @@
 # define PUSH_SWAP_H
 # include "libft.h"
 # include "libft_bonus.h"
+# define ERROR "Error\n"
+typedef struct s_node t_node ;
+
+typedef struct s_node {
+	int		index;
+	int		num;
+	t_node	*next;
+	t_node	*back;
+}				t_node;
+
+typedef	struct	s_node_handler {
+	t_node	*head;
+	t_node	*tail;
+	int		len;
+}				t_node_handler;
 
 /*
 **UTILS
 */
 void	checkcontent(void *num);
-t_list	*make_list(int arg_c, char **arg_v);
+int		make_list(int arg_c, char **arg_v, t_node_handler *dest);
+void	putnode(t_node_handler handle, char c);
+/*
+**NODE
+**/
+void	ft_nodeclear(t_node_handler *handle);
+void	ft_nodeadd_back(t_node_handler *handle, t_node *node);
 /*
 **SWAP
 */

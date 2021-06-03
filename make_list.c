@@ -6,7 +6,7 @@
 /*   By: snpark <snpark@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/31 16:19:49 by snpark            #+#    #+#             */
-/*   Updated: 2021/06/03 17:06:22 by snpark           ###   ########.fr       */
+/*   Updated: 2021/06/03 17:38:43 by snpark           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ static int	preprocess(t_node_handler *handle, t_node *node)
 		if (node->num == reader->num)
 		{
 			ft_nodeclear(handle);
-			ft_putstr_fd("error\n", 2);
+			ft_putstr_fd(ERROR, 2);
 			return (0);
 		}
 		else if (node->num < reader->num)
@@ -43,7 +43,7 @@ static t_node *make_node(t_node_handler *handle)
 	if (!node)
 	{
 		ft_nodeclear(handle);
-		ft_putstr_fd("error\n", 2);
+		ft_putstr_fd(ERROR, 2);
 		return (0);
 	}
 	node->index = 0;
@@ -56,7 +56,7 @@ static int	iserror(char *str, t_node *node, t_node_handler *handle, int *i)
 	{
 		free(node);
 		ft_nodeclear(handle);
-		ft_putstr_fd("error\n", 1);
+		ft_putstr_fd(ERROR, 2);
 		return (0);
 	}
 	else if (!*str)
