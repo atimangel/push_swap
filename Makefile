@@ -3,7 +3,6 @@ SRC = swap.c\
       push.c\
       reverse_rotate.c\
       rotate.c\
-      merge_sort.c\
 	  make_list.c\
 	  node.c
 

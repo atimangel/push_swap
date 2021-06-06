@@ -14,18 +14,28 @@
 
 void	swap(t_node_handler *handle)
 {
-	t_node	*tmp;
-
 	if (handle->len < 2)
 		return ;
-	tmp = handle->head->next;
+	handle->head = handle->head->next;
+	if (handle->len == 2)
+	{
+		handle->tail = handle->head->next;
+		return ;
+	}
+	handle->head->back->next = handle->head->next;
+	handle->head->next->back = handle->head->back;
+	handle->head->back->back = handle->head;
+	handle->head->next = handle->head->back;
+	handle->tail->next = handle->head;
+	handle->head->back = handle->tail;
+/*	tmp = handle->head->next;
 	handle->tail->next = tmp;
 	tmp->next->back = handle->head;
 	tmp->back = handle->tail;
 	tmp->next = handle->head;
 	handle->head->next = tmp->next;
-	habdle->head->back = tmp;
-	handle->head = tmp;
+	handle->head->back = tmp;
+	handle->head = tmp;*/
 }
 
 void	sa(t_node_handler *a)

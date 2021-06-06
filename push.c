@@ -12,25 +12,37 @@
 
 #include "push_swap.h"
 
-void	push(t_node_hadler *dest, t_node_handler *src)
+void	push(t_node_handler *dest, t_node_handler *src)
 {
-	if (src->len == 0)
+	t_node *src_head;
+
+	if ((!dest || !src) || (src->len == 0))
 		return ;
-	dest->tail->next = src->head;
-	dest->head->back = src->head;
-	dest->head = src->head;
-	dest->len++;
-	src->len--;
-	if (src->len == 0)
+	src_head = src->head;
+	if (--src->len == 0)
 	{
 		src->head = 0;
 		src->tail = 0;
 	}
-	else (src->len <= 2)
+	else
 	{
 		src->head = src->head->next;
-		src->head->next = src->tail;
-		src->head->back = src->head;
+		src->tail->next = src->head;
+		src->head->back = src->tail;
+	}
+	dest->head = src_head;
+	if (dest->len++ == 0)
+	{
+		src_head->next = src_head;
+		src_head->back = src_head;
+		dest->tail = src_head;
+	}
+	else
+	{
+		dest->head->next = dest->tail->next;
+		dest->head->next->back = dest->head;
+		dest->head->back = dest->tail;
+		dest->tail->next = dest->head;
 	}
 }
 

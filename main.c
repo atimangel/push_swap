@@ -22,16 +22,20 @@ void	checkcontent(void *num)
 int		main(int arg_c, char **arg_v)
 {
 	t_node_handler	a;
-//	t_list	*b;
+	t_node_handler	b;
 	int		i;
 
 	if (arg_c == 1)
 		return (0);
 	if (!make_list(arg_c, arg_v, &a))
 		return (0);
-//	b = NULL;
-	//rder_check(a);
+	b.head = 0;
+	b.tail = 0;
+	b.len = 0;
+	sa(&a);
+//rder_check(a);
 	//msort(&a, &b, arg_c - 1, 2);
 	putnode(a, 'a');
+	putnode(b, 'b');
 	return (0);
 }

@@ -30,6 +30,11 @@ typedef	struct	s_node_handler {
 	int		len;
 }				t_node_handler;
 
+typedef struct s_ab {
+	t_node_handler a;
+	t_node_handler b;
+	int		pivot;
+}		t_ab;
 /*
 **UTILS
 */
