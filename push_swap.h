@@ -38,6 +38,7 @@ typedef struct s_ab {
 /*
 **UTILS
 */
+int	check_order(t_node_handler a);
 void	checkcontent(void *num);
 int		make_list(int arg_c, char **arg_v, t_node_handler *dest);
 void	putnode(t_node_handler handle, char c);

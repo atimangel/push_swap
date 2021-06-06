@@ -27,7 +27,7 @@ static int	preprocess(t_node_handler *handle, t_node *node)
 		}
 		else if (node->num < reader->num)
 			reader->index++;
-		else if (node->num > reader->num && node->index < reader->index)
+		else if (node->num > reader->num && node->index <= reader->index)
 			node->index = reader->index + 1;
 		reader = reader->next;
 	}

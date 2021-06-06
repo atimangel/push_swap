@@ -32,6 +32,8 @@ int		main(int arg_c, char **arg_v)
 	b.head = 0;
 	b.tail = 0;
 	b.len = 0;
+	if (a.len == check_order(a))
+		return (0);
 	sa(&a);
 //rder_check(a);
 	//msort(&a, &b, arg_c - 1, 2);

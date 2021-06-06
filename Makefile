@@ -4,7 +4,8 @@ SRC = swap.c\
       reverse_rotate.c\
       rotate.c\
 	  make_list.c\
-	  node.c
+	  node.c\
+	check_order.c\
 
 
 NAME = push_swap
