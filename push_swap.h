@@ -77,5 +77,6 @@ void	rrr(t_node_handler *a, t_node_handler *b);
 /*
 ** Merge Sort
 */
+void	sort_3_a(t_node_handler *a);
 void	msort(t_node_handler *a, t_node_handler *b, int len, int level);
 #endif
