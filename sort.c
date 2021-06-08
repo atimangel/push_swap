@@ -1,32 +1,20 @@
 #include "push_swap.h"
 
-void	sort_2_a(t_node_handelr *a)
+void	sort_2_a(t_node_handler *a)
 {
 	if (check_ascending(*a) == 1)
 		sa(a);
-}
-
-void	get_index(t_node_handler *a, int *index[], int len)
-{
-	int i;
-	t_node head;
-
-	i = 0;
-	head = a->head;
-	while (i < len)
-	{
-		(*index)[i++] = head->index;
-		head = head->next;
-	}
 }
 
 void	sort_3_a(t_node_handler *a)
 {
 	int	index[3];
 
-	if (a->len == 3)
+	if (a->len != 3)
 		return ;
-	get_index(a, &index, 3);
+	index[0] = a->head->index;
+	index[1] = a->head->next->index;
+	index[2] = a->head->next->next->index;
 	if (check_ascending(*a) == 2 && index[0] < index[2])
 	{
 		ra(a);
@@ -35,7 +23,7 @@ void	sort_3_a(t_node_handler *a)
 	}
 	else if (check_ascending(*a) == 2&& index[2] < index[1])
 		rra(a);
-	if(descending(*a) == 3)
+	else if(check_descending(*a) == 3)
 	{
 		sa(a);
 		rra(a);

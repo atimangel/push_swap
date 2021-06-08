@@ -6,7 +6,7 @@
 /*   By: snpark <snpark@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/31 16:39:30 by snpark            #+#    #+#             */
-/*   Updated: 2021/06/03 17:44:06 by snpark           ###   ########.fr       */
+/*   Updated: 2021/06/08 19:09:27 by snpark           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,30 +18,43 @@
 typedef struct s_node t_node ;
 
 typedef struct s_node {
-	int		index;
-	int		num;
-	t_node	*next;
-	t_node	*back;
+	unsigned int	index;
+	int				num;
+	t_node			*next;
+	t_node			*back;
 }				t_node;
 
 typedef	struct	s_node_handler {
-	t_node	*head;
-	t_node	*tail;
-	int		len;
+	t_node			*head;
+	t_node			*tail;
+	unsigned int	len;
 }				t_node_handler;
 
+typedef struct s_pivot {
+	unsigned int	max;
+	unsigned int	min;
+	unsigned int	pivot;
+	unsigned int	len;
+}				t_pivot;
+
 typedef struct s_ab {
-	t_node_handler a;
-	t_node_handler b;
-	int		pivot;
+	t_node_handler	a;
+	t_node_handler	b;
+	t_pivot			a_range;
+	t_pivot			b_range;
 }		t_ab;
 /*
 **UTILS
 */
-int	check_order(t_node_handler a);
+int		check_order(t_node_handler a);
+int		check_ascending(t_node_handler a);
+int		check_descending(t_node_handler a);
+int		check_reverse_order(t_node_handler a);
+int		pivot_order(t_node_handler a, unsigned int pivot);
 void	checkcontent(void *num);
 int		make_list(int arg_c, char **arg_v, t_node_handler *dest);
 void	putnode(t_node_handler handle, char c);
+void	set_pivot(t_pivot *pivot, unsigned int max, unsigned int min);
 /*
 **NODE
 **/
@@ -78,5 +91,11 @@ void	rrr(t_node_handler *a, t_node_handler *b);
 ** Merge Sort
 */
 void	sort_3_a(t_node_handler *a);
+void	quick_sort(t_node_handler *a, t_node_handler *b, t_pivot a_range, t_pivot b_range);
+void	qsort_a_to_b(t_node_handler *a, t_node_handler *b, t_pivot a_range, t_pivot b_range);
+void	qsort_b_to_a(t_node_handler *a, t_node_handler *b, t_pivot a_range, t_pivot b_range);
 void	msort(t_node_handler *a, t_node_handler *b, int len, int level);
+
+
+void	print_list(t_node_handler a);
 #endif
