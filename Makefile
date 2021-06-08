@@ -6,6 +6,7 @@ SRC = swap.c\
 	  make_list.c\
 	  node.c\
 	check_order.c\
+	sort.c
 
 
 NAME = push_swap
