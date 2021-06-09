@@ -44,6 +44,10 @@ void	qsort_a_to_b
 	unsigned int	ra_cnt;
 	unsigned int	len;
 
+	if (a->len <= 2 && check_order(*a) != a->len)
+		sa(a)
+	if (a->len <= 2 && check_order(*a) == a->len)
+		return;
 	pb_cnt = a_range.max - a_range.pivot + (a_range.max + 1) % 2;
 	ra_cnt = 0;
 	order = 0;
