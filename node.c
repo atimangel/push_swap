@@ -1,6 +1,18 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   node.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: snpark <snpark@student.42seoul.kr>         +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/06/09 14:57:39 by snpark            #+#    #+#             */
+/*   Updated: 2021/06/09 15:20:29 by snpark           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
-void	ft_nodeadd_back(t_node_handler *handle, t_node *node)
+void	ft_nodeadd_back(t_node_h *handle, t_node *node)
 {
 	if (!handle)
 		return ;
@@ -22,7 +34,7 @@ void	ft_nodeadd_back(t_node_handler *handle, t_node *node)
 	return ;
 }
 
-void	ft_nodeclear(t_node_handler *handle)
+void	ft_nodeclear(t_node_h *handle)
 {
 	t_node *tmp;
 
@@ -36,7 +48,7 @@ void	ft_nodeclear(t_node_handler *handle)
 	handle->tail = 0;
 }
 
-void	putnode(t_node_handler handle, char c)
+void	putnode(t_node_h handle, char c)
 {
 	ft_putchar_fd(c, 1);
 	ft_putchar_fd(' ', 1);

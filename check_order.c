@@ -1,10 +1,21 @@
-#include "push_swap.h"
-#include <stdio.h>
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   check_order.c                                      :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: snpark <snpark@student.42seoul.kr>         +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/06/09 15:02:18 by snpark            #+#    #+#             */
+/*   Updated: 2021/06/09 15:26:14 by snpark           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
-int	check_order(t_node_handler a)
+#include "push_swap.h"
+
+unsigned int	check_order(t_node_h a)
 {
-	int	i;
-	t_node	*head;
+	unsigned int	i;
+	t_node			*head;
 
 	i = 0;
 	head = a.head;
@@ -13,24 +24,10 @@ int	check_order(t_node_handler a)
 	return (i);
 }
 
-void	print_list(t_node_handler a)
+int				check_reverse_order(t_node_h a)
 {
-	int	i;
-	t_node	*head;
-
-	i = 0;
-	head = a.head;
-	while (i++ < a.len)
-	{
-		printf("i %d num %d index %d\n", i, head->num, head->index);
-		head = head->next;
-	}
-}
-
-int	check_reverse_order(t_node_handler a)
-{
-	int	i;
-	t_node	*tail;
+	unsigned int		i;
+	t_node				*tail;
 
 	i = 0;
 	tail = a.tail;
@@ -39,12 +36,12 @@ int	check_reverse_order(t_node_handler a)
 	return (i);
 }
 
-int	pivot_order(t_node_handler a, unsigned int pivot)
+int				pivot_order(t_node_h a, unsigned int pivot)
 {
-	unsigned int		reverse_count;
-	unsigned int		order_count;
-	t_node	*head;
-	t_node	*tail;
+	unsigned int	reverse_count;
+	unsigned int	order_count;
+	t_node			*head;
+	t_node			*tail;
 
 	head = a.head->next;
 	tail = a.head->back;
@@ -66,28 +63,26 @@ int	pivot_order(t_node_handler a, unsigned int pivot)
 		return (1);
 }
 
-int	check_ascending(t_node_handler a)
+int				check_ascending(t_node_h a)
 {
-	int	i;
-	t_node	*head;
+	unsigned int	i;
+	t_node			*head;
 
 	i = 0;
 	head = a.head;
 	while (i++ < a.len && head->index < head->next->index)
 		head = head->next;
 	return (i);
-
 }
 
-int	check_descending(t_node_handler a)
+int				check_descending(t_node_h a)
 {
-	int	i;
-	t_node	*head;
+	unsigned int	i;
+	t_node			*head;
 
 	i = 0;
 	head = a.head;
 	while (i++ < a.len && head->index > head->next->index)
 		head = head->next;
 	return (i);
-
 }

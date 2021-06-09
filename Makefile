@@ -8,6 +8,7 @@ SRC = swap.c\
 	check_order.c\
 	sort.c\
 	quick_sort.c\
+	pivot.c
 
 
 NAME = push_swap
@@ -18,7 +19,7 @@ all : $(NAME)
 	
 $(NAME) : $(SRC)
 	make -C ./libft
-	gcc -I libft main.c $(SRC) libft/libft.a -o push_swap
+	gcc $(CFLAG) -I libft main.c $(SRC) libft/libft.a -o push_swap
 
 test :
 	make -C ./libft

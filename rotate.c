@@ -6,13 +6,13 @@
 /*   By: snpark <snpark@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/31 16:38:39 by snpark            #+#    #+#             */
-/*   Updated: 2021/05/31 16:39:04 by snpark           ###   ########.fr       */
+/*   Updated: 2021/06/09 15:18:45 by snpark           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	rotate(t_node_handler *list)
+void	rotate(t_node_h *list)
 {
 	if (!list)
 		return ;
@@ -22,19 +22,19 @@ void	rotate(t_node_handler *list)
 	list->head = list->tail->next;
 }
 
-void	ra(t_node_handler *a)
+void	ra(t_node_h *a)
 {
 	rotate(a);
 	ft_putstr_fd("ra\n", 1);
 }
 
-void	rb(t_node_handler *b)
+void	rb(t_node_h *b)
 {
 	rotate(b);
 	ft_putstr_fd("rb\n", 1);
 }
 
-void	rr(t_node_handler *a, t_node_handler *b)
+void	rr(t_node_h *a, t_node_h *b)
 {
 	rotate(a);
 	rotate(b);

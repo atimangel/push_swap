@@ -6,13 +6,21 @@
 /*   By: snpark <snpark@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/31 16:42:08 by snpark            #+#    #+#             */
-/*   Updated: 2021/06/03 18:25:05 by snpark           ###   ########.fr       */
+/*   Updated: 2021/06/09 15:18:20 by snpark           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	push(t_node_handler *dest, t_node_handler *src)
+static void	push_len_over_1(t_node_h *dest)
+{
+	dest->head->next = dest->tail->next;
+	dest->head->next->back = dest->head;
+	dest->head->back = dest->tail;
+	dest->tail->next = dest->head;
+}
+
+void		push(t_node_h *dest, t_node_h *src)
 {
 	t_node *src_head;
 
@@ -38,21 +46,16 @@ void	push(t_node_handler *dest, t_node_handler *src)
 		dest->tail = src_head;
 	}
 	else
-	{
-		dest->head->next = dest->tail->next;
-		dest->head->next->back = dest->head;
-		dest->head->back = dest->tail;
-		dest->tail->next = dest->head;
-	}
+		push_len_over_1(dest);
 }
 
-void	pa(t_node_handler *a, t_node_handler *b)
+void		pa(t_node_h *a, t_node_h *b)
 {
 	push(a, b);
 	ft_putstr_fd("pa\n", 1);
 }
 
-void	pb(t_node_handler *a, t_node_handler *b)
+void		pb(t_node_h *a, t_node_h *b)
 {
 	push(b, a);
 	ft_putstr_fd("pb\n", 1);

@@ -1,42 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   reverse_rotate.c                                   :+:      :+:    :+:   */
+/*   pivot.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: snpark <snpark@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/05/31 16:42:41 by snpark            #+#    #+#             */
-/*   Updated: 2021/06/09 15:18:36 by snpark           ###   ########.fr       */
+/*   Created: 2021/06/08 11:04:08 by snpark            #+#    #+#             */
+/*   Updated: 2021/06/09 15:13:59 by snpark           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	reverse_rotate(t_node_h *list)
+void		set_pivot(t_pivot *pivot, unsigned int max, unsigned int min)
 {
-	if (!list)
-		return ;
-	if (list->len <= 1)
-		return ;
-	list->tail = list->tail->back;
-	list->head = list->tail->next;
-}
-
-void	rra(t_node_h *a)
-{
-	reverse_rotate(a);
-	ft_putstr_fd("rra\n", 1);
-}
-
-void	rrb(t_node_h *b)
-{
-	reverse_rotate(b);
-	ft_putstr_fd("rrb\n", 1);
-}
-
-void	rrr(t_node_h *a, t_node_h *b)
-{
-	reverse_rotate(a);
-	reverse_rotate(b);
-	ft_putstr_fd("rrr\n", 1);
+	pivot->max = max;
+	pivot->min = min;
+	pivot->len = max - min + 1;
+	pivot->pivot = (pivot->len / 2) + min - ((pivot->len + 1) % 2);
 }

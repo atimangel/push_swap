@@ -6,13 +6,13 @@
 /*   By: snpark <snpark@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/31 16:19:49 by snpark            #+#    #+#             */
-/*   Updated: 2021/06/03 17:38:43 by snpark           ###   ########.fr       */
+/*   Updated: 2021/06/09 15:25:10 by snpark           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static int	preprocess(t_node_handler *handle, t_node *node)
+static int		preprocess(t_node_h *handle, t_node *node)
 {
 	t_node	*reader;
 
@@ -34,7 +34,7 @@ static int	preprocess(t_node_handler *handle, t_node *node)
 	return (1);
 }
 
-static t_node *make_node(t_node_handler *handle)
+static t_node	*make_node(t_node_h *handle)
 {
 	t_node *node;
 
@@ -50,7 +50,7 @@ static t_node *make_node(t_node_handler *handle)
 	return (node);
 }
 
-static int	iserror(char *str, t_node *node, t_node_handler *handle, int *i)
+static int		iserror(char *str, t_node *node, t_node_h *handle, int *i)
 {
 	if (!str || (*str && ft_ispm(*str) == -2 && !ft_isspace(*str)))
 	{
@@ -64,7 +64,7 @@ static int	iserror(char *str, t_node *node, t_node_handler *handle, int *i)
 	return (1);
 }
 
-int		make_list(int arg_c, char **arg_v, t_node_handler *dest)
+int				make_list(int arg_c, char **arg_v, t_node_h *dest)
 {
 	int				i;
 	t_node			*node;
@@ -85,20 +85,3 @@ int		make_list(int arg_c, char **arg_v, t_node_handler *dest)
 	}
 	return (1);
 }
-/*
-	//old
-		integer = ft_atoi_ptr(arg_v[i++]);
-		if (!make_list_fail_integer(integer, &a))
-			return (0);
-		tmp = ft_lstnew(integer);
-		if (!make_list_fail_tmp(integer, tmp, &a))
-			return (0);
-		ft_lstadd_back(&a, tmp);
-		if (!check_same_num(&a, node->content->content))
-			return (0);
-	}
-	dest->head = a;
-	dest->tail = a->content->back;
-	dest->len = 
-	return (a);
-}*/

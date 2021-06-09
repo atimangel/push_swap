@@ -6,21 +6,21 @@
 /*   By: snpark <snpark@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/31 16:44:57 by snpark            #+#    #+#             */
-/*   Updated: 2021/06/03 14:22:34 by snpark           ###   ########.fr       */
+/*   Updated: 2021/06/09 15:27:14 by snpark           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft_bonus.h"
 #include "libft.h"
 
-int	ft_isspace(char c)
+int			ft_isspace(char c)
 {
 	if ((c >= 9 && c <= 13) || c == 32)
 		return (1);
 	return (0);
 }
 
-int	ft_ispm(char c)
+int			ft_ispm(char c)
 {
 	if (c == '+')
 		return (1);
