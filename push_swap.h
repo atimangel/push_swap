@@ -6,7 +6,7 @@
 /*   By: snpark <snpark@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/31 16:39:30 by snpark            #+#    #+#             */
-/*   Updated: 2021/06/09 15:44:49 by snpark           ###   ########.fr       */
+/*   Updated: 2021/06/10 10:44:30 by snpark           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,14 +17,12 @@
 # include "libft_bonus.h"
 # define ERROR "Error\n"
 
-typedef struct s_node t_node;
-
-typedef struct s_node
+typedef struct	s_node
 {
 	unsigned int	index;
 	int				num;
-	t_node			*next;
-	t_node			*back;
+	struct s_node	*next;
+	struct s_node	*back;
 }				t_node;
 
 typedef	struct	s_node_h
@@ -34,14 +32,13 @@ typedef	struct	s_node_h
 	unsigned int	len;
 }				t_node_h;
 
-typedef struct s_pivot
+typedef struct	s_pivot
 {
 	unsigned int	max;
 	unsigned int	min;
 	unsigned int	pivot;
 	unsigned int	len;
 }				t_pivot;
-
 /*
 **UTILS
 */
@@ -54,9 +51,10 @@ void			checkcontent(void *num);
 int				make_list(int arg_c, char **arg_v, t_node_h *dest);
 void			putnode(t_node_h handle, char c);
 void			set_pivot(t_pivot *pivot, unsigned int max, unsigned int min);
+
 /*
 **NODE
-**/
+*/
 void			ft_nodeclear(t_node_h *handle);
 void			ft_nodeadd_back(t_node_h *handle, t_node *node);
 /*
@@ -90,8 +88,7 @@ void			rrr(t_node_h *a, t_node_h *b);
 ** Quick Sort
 */
 void			sort_3_a(t_node_h *a);
-void			quick_sort
-(t_node_h *a, t_node_h *b, t_pivot a_r, t_pivot b_r);
+void			quick_sort(t_node_h *a, t_node_h *b, t_pivot a_r, t_pivot b_r);
 void			qsort_a_to_b
 (t_node_h *a, t_node_h *b, t_pivot a_r, t_pivot b_r);
 void			qsort_b_to_a
