@@ -6,7 +6,7 @@
 /*   By: snpark <snpark@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/31 16:44:57 by snpark            #+#    #+#             */
-/*   Updated: 2021/06/09 15:27:14 by snpark           ###   ########.fr       */
+/*   Updated: 2021/06/10 13:44:45 by snpark           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,7 @@ int			ft_atoi_ptr(char **origin)
 	bowl = 0;
 	while (ft_isspace(string[i]))
 		i++;
-	if ((negative = ft_ispm(string[i])) != 0)
+	if ((negative = ft_ispm(string[i])) != 0 && negative != -2)
 		i++;
 	i = c_to_n(i, string, &bowl, negative);
 	if (i == -1)
